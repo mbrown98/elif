@@ -12,7 +12,7 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizItem from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
@@ -31,7 +31,7 @@ const Post = ({ post }) => {
         <Button
           style={{ color: "white" }}
           size="small"
-          onClick={() => console.log("clicked")}
+          onClick={() => setCurrentId(post._id)}
         >
           <MoreHorizItem fontSize="default" />
         </Button>
@@ -42,9 +42,12 @@ const Post = ({ post }) => {
           {post.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
+      <Typography className={classes.title} variant="h5" gutterBottom>
+        {post.title}
+      </Typography>
       <CardContent>
         {" "}
-        <Typography className={classes.title} variant="h5" gutterBottom>
+        <Typography variant="h5" gutterBottom>
           {post.message}
         </Typography>
       </CardContent>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   AppBar,
@@ -19,11 +19,12 @@ import useStyles from "./styles";
 // import memories from "./Images/....."
 
 const App = () => {
+  const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [dispatch, currentId]);
   return (
     <Container maxwidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
@@ -41,10 +42,10 @@ const App = () => {
             spacing={4}
           >
             <Grid item xs={12} sm={7}>
-              <Posts />
+              <Posts setCurrentId={setCurrentId} currentId={currentId} />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Form />
+              <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
           </Grid>
         </Container>

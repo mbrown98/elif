@@ -17,8 +17,6 @@ app.use(cors());
 
 app.use("/posts", postRoutes);
 
-//MongoDB Atlas connection string
-
 const PORT = process.env.port || 5000;
 
 mongoose

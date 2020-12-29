@@ -18,7 +18,7 @@ app.use(cors());
 app.use("/posts", postRoutes);
 
 const PORT = process.env.port || 5000;
-
+//test
 mongoose
   .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,

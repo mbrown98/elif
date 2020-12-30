@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.send("Hello to elif!!");
 });
 
-const PORT = process.env.port;
+const PORT = process.env.PORT;
 //test33
 mongoose
   .connect(process.env.CONNECTION_URL, {

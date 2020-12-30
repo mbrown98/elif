@@ -17,7 +17,11 @@ app.use(cors());
 
 app.use("/posts", postRoutes);
 
-const PORT = process.env.port || 5000;
+app.get("/", (req, res) => {
+  res.send("Hello to elif");
+});
+
+const PORT = process.env.port;
 //test33
 mongoose
   .connect(process.env.CONNECTION_URL, {
